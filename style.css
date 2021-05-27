@@ -1,0 +1,54 @@
+body{
+    background-image: url(./bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.title{
+    width: 300px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+}
+
+.typo{
+    font-family: 'Bungee', cursive;
+}
+
+#imgPokemon{
+    height: 2rem;
+}
+
+button{
+    font-size: 40px;
+    color: rgb(255, 208, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(5, 30, 167);
+}
+
+input{
+    color:rgb(5, 30, 167);
+    font-weight: bold;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.mainContain{
+    background-color: white;
+    border: solid black 2px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 170px;
+    margin: 10px;
+}
+
+.mainContain h2{
+    color:rgb(5, 30, 167);
+    font-family: 'Bungee', cursive;
+}

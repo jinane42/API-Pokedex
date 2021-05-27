@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet"> 
+    <title>JinJin Pokedex</title>
+</head>
+<body>
+    <img class='title' src="./pokemon.webp" alt="">
+    <p class="typo" >Do you need some informations about <img id="imgPokemon" src="./pokemon.webp" alt=""> ?</p>
+    <p class="typo">Just enter the name of a pokemon and we will tell you everything about it !</p>
+    <input type="text">
+    <button>Let's search !</button>
+    <p class="typo">If you are looking for a certain Pokemon but don't remember its name very well, check this <a href="https://en.wikipedia.org/wiki/List_of_Pok%C3%A9mon">list</a>
+    </p>
+    <div class="container">
+        
+    </div>
+    
+        
+    <script>
+        const mainContain = document.querySelector('.container');
+        const button = document.querySelector('button');
+
+        const pokedex = (pokemonName) => {
+             fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data)
+            mainContain.insertAdjacentHTML("beforeend",
+            `<div class="mainContain">
+            <h2>${data.species.name}</h2>
+            <img src="${data.sprites.front_default}" alt="">
+            <p>Index : ${data.game_indices[0].game_index}</p>
+            <p> Moves : 
+                <br> ${data.moves[0].move.name}
+                <br> ${data.moves[1].move.name}
+                <br> ${data.moves[2].move.name}
+                <br> ${data.moves[3].move.name} </p>
+            </div> `
+            )
+            document.querySelector('input').value = ""
+        })
+        }
+       
+
+        button.addEventListener('click', (event) => {
+            pokedex(document.querySelector('input').value);
+            
+        }
+        
+        )
+
+    </script>
+</body>
+</html>
